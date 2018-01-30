@@ -1,0 +1,17 @@
+<div class="container">
+
+    <h2>Editace souboru:</h2>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        Název:
+        <input type="text" name="editFilename"  placeholder="<?php echo $contribution->title ?>"><br>
+        PDF soubor:
+        <input type="file" name="fileToEdit" /*id="fileToUpload"*/><br>
+        Popis: <input type="text" name="editFileDescription"  placeholder="<?php echo $contribution->description ?>">
+        <input type="hidden" name="idFileToEdit" value="<?php echo $idkedit ?>">
+        <input type="submit" value="Odeslat">
+    </form>
+
+
+
+</div>

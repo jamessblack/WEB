@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Jste přihlášen jako recenzent, níže jsou příspěvky k ohodnocení</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Příspěvek</th>
+            <th>Otevřít</th>
+            <th>Ohodnotit</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php
+        foreach ($contents as $content) {
+            echo "<tr>";
+            echo "<td>" .  $content->title . "</td>" . PHP_EOL;
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='path' value='$content->file'/><input type='submit' value='Otevřít'/></form></td>" . PHP_EOL;
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='reviewID' value='$content->id'/><INPUT TYPE=HIDDEN NAME='reviewPath' value='$content->file'/><input type='submit' value='Ohodnotit'/></form></td>" . PHP_EOL;
+            echo "</tr>";
+
+        } ?>
+
+        </tbody>
+    </table>
+
+
+
+</div>

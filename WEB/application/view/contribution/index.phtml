@@ -1,0 +1,66 @@
+<div class="container">
+    <h2>Jste přihlášen, vaše příspěvky jsou níže</h2>
+    <form action="<?php echo URL; ?>contribution/upload/page=upload"><input type="submit" value="Nový příspěvek" />
+    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Název</th>
+            <th>Popis</th>
+            <th>Autor</th>
+            <th>Hodnocení - Jazyk</th>
+            <th>Hodnocení - Úprava</th>
+            <th>Hodnocení - Přínos</th>
+            <th>Otevřít</th>
+            <th>Smazat</th>
+            <th>Editovat</th>
+            <th>Stav</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php
+        foreach ($contributions as $contribution) {
+            echo "<tr>";
+            echo "<td>" .  $contribution->title . "</td>" . PHP_EOL;
+            echo "<td>" .  $contribution->description . "</td>" . PHP_EOL;
+            echo "<td>" .  $contribution->username . "</td>" . PHP_EOL;
+            if($contribution->published==1 || $contribution->published==2) {
+                echo "<td>" . round($contribution->score_lang) . "</td>" . PHP_EOL;
+                echo "<td>" . round($contribution->score_appearance) . "</td>" . PHP_EOL;
+                echo "<td>" . round($contribution->score_benefit) . "</td>" . PHP_EOL;
+            } else {
+                echo "<td></td><td></td><td></td>";
+            }
+            if($contribution->file)
+            {
+                echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='path' value='$contribution->file'/><input type='submit' value='Otevřít'/></form></td>" . PHP_EOL;
+                if($contribution->published != 1) {
+                    echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='deletePath' value='$contribution->file'/><input type='submit' value='Smazat'/></form></td>" . PHP_EOL;
+                    echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='editID' value='$contribution->id'/><input type='submit' value='Editovat'/></form></td>" . PHP_EOL;
+                } else {
+                    echo "<td></td><td></td>";
+                }
+            }
+            else {
+                echo "<td></td><td></td><td></td>";
+            }
+            if($contribution->published == 1) {
+                echo "<td>Přijato</td>";
+            }
+            else if($contribution->published == 2) {
+                echo "<td>Odmítnuto</td>";
+            }
+            else {
+                echo "<td>V recenzním řízení</td>";
+            }
+            echo "</tr>";
+
+        } ?>
+
+        </tbody>
+    </table>
+
+
+
+</div>

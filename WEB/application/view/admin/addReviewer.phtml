@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h2>Zvolte požadovanou hodnost uživatele:</h2>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        <select name="idReviewerToAdd">
+            <?php
+            foreach ($unassigned as $unRecen){
+                echo "<option value='". $unRecen->id . "'>" . $unRecen->username . "</option>";
+            }
+            ?>
+        </select><br>
+        <input type="hidden" name="idContent" value="<?php echo $idContent; ?>">
+        <input type="submit" value="Odeslat">
+    </form>
+
+
+
+</div>

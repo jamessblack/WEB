@@ -1,0 +1,36 @@
+<div class="container">
+
+    <h2>Ohodnoťte jako ve škole:</h2>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        Jazyk dokumentu:
+        <select name="langRate">
+            <option value="1">1 - vynikající</option>
+            <option value="2">2 - velmi dobrý</option>
+            <option value="3">3 - dobrý</option>
+            <option value="4">4 - ucházející</option>
+            <option value="5">5 - nedostatečný</option>
+        </select><br>
+        Úprava dokumentu:
+        <select name="appRate">
+            <option value="1">1 - vynikající</option>
+            <option value="2">2 - velmi dobrý</option>
+            <option value="3">3 - dobrý</option>
+            <option value="4">4 - ucházející</option>
+            <option value="5">5 - nedostatečný</option>
+        </select><br>
+        Přínos dokumentu:
+        <select name="benRate">
+            <option value="1">1 - vynikající</option>
+            <option value="2">2 - velmi dobrý</option>
+            <option value="3">3 - dobrý</option>
+            <option value="4">4 - ucházející</option>
+            <option value="5">5 - nedostatečný</option>
+        </select><br>
+        <input type="hidden" name="idContent" value="<?php echo $idCont ?>">
+        <input type="submit" value="Odeslat">
+    </form>
+
+
+
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Níže jsou ohodnocení k editaci:</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Příspěvek</th>
+            <th>Otevřít</th>
+            <th>Hodnocení - Jazyk</th>
+            <th>Hodnocení - Úprava</th>
+            <th>Hodnocení - Přínos</th>
+            <th>Editovat</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php
+        foreach ($contents as $content) {
+            echo "<tr>";
+            echo "<td>" .  $content->title . "</td>" . PHP_EOL;
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='path' value='$content->file'/><input type='submit' value='Otevřít'/></form></td>" . PHP_EOL;
+            echo "<td>" .  $content->score_lang . "</td>" . PHP_EOL;
+            echo "<td>" .  $content->score_appearance . "</td>" . PHP_EOL;
+            echo "<td>" .  $content->score_benefit . "</td>" . PHP_EOL;
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='editID' value='$content->id'/><input type='submit' value='Editovat'/></form></td>" . PHP_EOL;
+            echo "</tr>";
+
+        } ?>
+
+        </tbody>
+    </table>
+
+
+
+</div>

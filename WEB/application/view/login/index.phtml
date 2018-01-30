@@ -1,0 +1,13 @@
+<div class="container">
+<h2>Přihlašování:</h2>
+
+    <form action="#" method="POST" autocomplete="off">
+        Uživatelské jméno:<br>
+        <input type="text" name="lusername" placeholder="username"><br>
+        Heslo:<br>
+        <input type="password" name="lpassword" placeholder="password"><br>
+        <?php if($_SESSION['loginError']!=""){echo "<font color='red'>" . $_SESSION['loginError'] . "</font>";} ?><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</div>

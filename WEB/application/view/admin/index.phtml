@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>Jste přihlášen jako admin, uživatelé jsou níže</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Blokován</th>
+            <th>Smazat</th>
+            <th>Zablokovat</th>
+            <th>Změnit roli</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php
+        foreach ($users as $user) {
+            echo "<tr>";
+            echo "<td>" .  $user->username . "</td>" . PHP_EOL;
+            echo "<td>" .  $user->email . "</td>" . PHP_EOL;
+            if($user->role==0) {
+                echo "<td>" . "autor" . "</td>" . PHP_EOL;
+            } else if($user->role==1) {
+                echo "<td>" . "recenzent" . "</td>" . PHP_EOL;
+            } else if($user->role==2){
+                echo "<td>" . "admin" . "</td>" . PHP_EOL;
+            } else {
+                echo "<td></td>";
+            }
+            if($user->blocked){
+                echo "<td>Ano</td>";
+            } else {
+                echo "<td>Ne</td>";
+            }
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='deleteUserID' value='$user->id'/><input type='submit' value='Smazat'/></form></td>" . PHP_EOL;
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='banUserID' value='$user->id'/><input type='submit' value='Zablokovat'/></form></td>" . PHP_EOL;
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='editUserID' value='$user->id'/><input type='submit' value='Změnit roli'/></form></td>" . PHP_EOL;
+            echo "</tr>";
+
+        } ?>
+
+        </tbody>
+    </table>
+
+
+
+</div>

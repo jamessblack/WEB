@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h2>Zvolte požadovanou hodnost uživatele:</h2>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        <select name="editRole">
+            <option value="0">autor</option>
+            <option value="1">recenzent</option>
+            <option value="2">admin</option>
+        </select><br>
+        <?php echo "Předchozí hodnost: ";
+        if($contribution->role == 0) echo "autor";
+        else if($contribution->role == 1) echo "recenzent";
+        else if($contribution->role == 2) echo "admin"; ?><br>
+        <input type="hidden" name="idUserToEdit" value="<?php echo $idEdit ?>">
+        <input type="submit" value="Odeslat">
+    </form>
+
+
+
+</div>

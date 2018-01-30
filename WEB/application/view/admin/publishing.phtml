@@ -1,0 +1,38 @@
+<div class="container">
+
+    <h2>Rozhodněte o publikování:</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Název</th>
+            <th>Popis</th>
+            <th>Hodnocení - Jazyk</th>
+            <th>Hodnocení - Úprava</th>
+            <th>Hodnocení - Přínos</th>
+            <th>Schválit</th>
+            <th>Zamítnout</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php
+        foreach ($content as $row) {
+            echo "<tr>";
+            echo "<td>" .  $row->title . "</td>" . PHP_EOL;
+            echo "<td>" .  $row->description . "</td>" . PHP_EOL;
+            echo "<td>" .  round($row->score_lang) . "</td>" . PHP_EOL;
+            echo "<td>" .  round($row->score_appearance) . "</td>" . PHP_EOL;
+            echo "<td>" .  round($row->score_benefit) . "</td>" . PHP_EOL;
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='publishID' value='$row->id'/><input type='submit' value='Schválit'/></form></td>" . PHP_EOL;
+            echo "<td><form action='#' method='POST'><INPUT TYPE=HIDDEN NAME='publishNotID' value='$row->id'/><input type='submit' value='Zamítnout'/></form></td>" . PHP_EOL;
+            echo "</tr>";
+
+        } ?>
+
+        </tbody>
+    </table>
+
+
+
+</div>
